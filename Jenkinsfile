@@ -11,6 +11,11 @@ pipeline {
         sh 'npm install'
       }
     }
+    stage('Test') {
+      steps {
+        sh 'echo Test stage placeholder'
+      }
+    }
     stage('Deploy') {
       steps {
         sh 'ng serve'
