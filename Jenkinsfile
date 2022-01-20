@@ -9,8 +9,6 @@ pipeline {
     stage('Build') {
       steps {
         sh 'npm install'
-        input message: 'Proceed to see ng version?'
-        sh 'ng --version'
       }
     }
     stage('Test') {
@@ -20,6 +18,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
+        sh 'npm install -g @angular/cli'
         sh 'npm start'
       }
     }
