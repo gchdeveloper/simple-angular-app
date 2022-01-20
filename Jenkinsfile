@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'npm install'
-        input message 'After install, proceed to check ng version'
+        input message: 'After install, proceed to check ng version.'
         sh 'ng --version'
       }
     }
