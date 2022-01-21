@@ -18,8 +18,9 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'npm install @angular/cli'
-        sh 'npm start'
+        sh './jenkins/scripts/deliver.sh'
+        input message: 'Select "Proceed" to shut down the angular app'
+        sh './jenkins/scripts/kill.sh'
       }
     }
   }
