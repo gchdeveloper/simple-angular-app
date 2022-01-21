@@ -17,9 +17,9 @@ pipeline {
       }
     }
     stage('Deploy') {
-      steps {
+       steps {
         sh './jenkins/scripts/deliver.sh'
-        input message: 'Select "Proceed" to shut down the angular app'
+        input message: 'Select "Proceed" to continue after fnishing browsing the site.'
         sh './jenkins/scripts/kill.sh'
       }
     }
