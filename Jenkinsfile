@@ -1,25 +1,27 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:lts-bullseye-slim'
-      args '-p 4200:4200'
+    agent {
+        docker {
+            image 'node:lts-bullseye-slim'
+            args '-p 3000:3000'
+        }
     }
-  }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'npm install'
-      }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './jenkins/scripts/test.sh'
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+                input message: 'Select "Proceed" to continue after fnishing browsing the site.'
+                sh './jenkins/scripts/kill.sh'
+            }
+        }
     }
-    stage('Test') {
-      steps {
-        sh 'echo Test stage placeholder'
-      }
-    }
-    stage('Deploy') {
-       steps {
-        sh './jenkins/scripts/deliver.sh'
-      }
-    }
-  }
 }

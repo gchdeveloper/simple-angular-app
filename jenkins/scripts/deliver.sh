@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-echo 'Can it even echo?'
+echo 'Can it even echo deliver.sh?'
