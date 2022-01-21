@@ -18,9 +18,7 @@ pipeline {
     }
     stage('Deploy') {
        steps {
-        sh './jenkins/scripts/deliver.sh'
-        input message: 'Select "Proceed" to continue after fnishing browsing the site.'
-        sh './jenkins/scripts/kill.sh'
+        sh 'echo nothing works'
       }
     }
   }
