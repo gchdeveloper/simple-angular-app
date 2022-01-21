@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
-echo 'Install Angular/CLI so that "ng serve" will run."'
-set -x
-npm install @angular/cli
-set +x
+#echo 'Install Angular/CLI so that "ng serve" will run."'
+#set -x
+#npm install @angular/cli
+#set +x
 
 echo 'Not sure if npm build works with Angular apps.'
 set -x
