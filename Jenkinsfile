@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Deploy') {
        steps {
-        sh 'echo nothing works'
+        sh './jenkins/scripts/deliver.sh'
       }
     }
   }
