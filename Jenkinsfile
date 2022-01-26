@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh './jenkins/scripts/deliver.sh && tail -f /dev/null'
                 input message: 'Select "Proceed" to continue after fnishing browsing the site.'
                 sh './jenkins/scripts/kill.sh'
             }
