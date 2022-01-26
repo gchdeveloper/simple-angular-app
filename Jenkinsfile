@@ -6,12 +6,14 @@ pipeline {
             agent {
                 docker {
                     image 'node:lts-bullseye-slim'
+                    args '-v ang-build:./dist/simple-angular-app'
                 }
             }
             stages {
                 stage('Build') {
                     steps {
-                        sh 'echo building...'
+                        sh 'npm install'
+                        sh 'ng build'
                     }
                 }
                 stage('Test') {
@@ -24,13 +26,14 @@ pipeline {
         stage('Deploy') {
             agent {
                 docker {
-                    image 'node:12-alpine'
+                    image 'nginx:1.17.1-alpine'
+                    args '-v ang-build:/usr/share/nginx/html'
                 }
             }
             stages {
                 stage('Deploy') {
                     steps {
-                        sh 'echo deploying...'
+                        sh '/usr/bin/nginx'
                     }
                 }
             }
