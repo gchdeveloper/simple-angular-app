@@ -6,7 +6,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:lts-bullseye-slim'
-                    args '-v ang-build:./dist/simple-angular-app'
+                    args '-v ang-build:dist/simple-angular-app'
                 }
             }
             stages {
