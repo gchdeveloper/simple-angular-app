@@ -27,7 +27,7 @@ pipeline {
             agent {
                 docker {
                     image 'nginx:1.17.1-alpine'
-                    args '-v ang-build:/usr/share/nginx/html'
+                    args '-v ang-build:/usr/share/nginx/html -p 80:80'
                 }
             }
             stages {
