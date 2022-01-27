@@ -12,4 +12,5 @@ sleep 1
 echo $! > .pidfile
 set +x
 
-echo 'App running on http://localhost:4401'
+echo pid =
+cat .pidfile
