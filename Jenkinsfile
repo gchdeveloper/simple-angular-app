@@ -6,18 +6,18 @@ pipeline {
             agent {
                 docker {
                     image 'node:16-alpine'
-                    args '-u root:root'
+//                     args '-u root:root'
 //                     args '-v ang-build:/var/jenkins_home/workspace/simple-angular-app-fixed/dist/simple-angular-app'
                 }
             }
             stages {
                 stage('Build') {
                     steps {
-                        sh 'pwd'
-                        sh 'whoami'
-                        sh 'ls -al'
-                        sh 'ls -al dist'
-                        sh 'ls -al dist/simple-angular-app'
+//                         sh 'pwd'
+//                         sh 'whoami'
+//                         sh 'ls -al'
+//                         sh 'ls -al dist'
+//                         sh 'ls -al dist/simple-angular-app'
                         sh 'rm -rf dist'
                         sh 'npm install'
                         sh 'npm run build'
