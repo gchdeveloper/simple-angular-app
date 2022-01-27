@@ -13,6 +13,7 @@ pipeline {
                 stage('Build') {
                     steps {
                         sh 'pwd'
+                        sh 'whoami'
 //                         sh 'ls -al dist/simple-angular-app'
                         sh 'npm install'
                         sh 'npm run build'
