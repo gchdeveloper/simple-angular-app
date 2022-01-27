@@ -16,6 +16,7 @@ pipeline {
                         sh 'ls -al dist/simple-angular-app'
                         sh 'npm install'
                         sh 'npm run build'
+                        sh 'ls -al dist/simple-angular-app'
                     }
                 }
                 stage('Test') {
