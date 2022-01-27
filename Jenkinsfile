@@ -14,6 +14,7 @@ pipeline {
                     steps {
                         sh 'pwd'
                         sh 'ls -al'
+                        sh 'mkdir tmp'
                         sh 'npm install'
                         sh 'npm run build'
                     }
