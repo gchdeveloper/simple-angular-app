@@ -5,7 +5,7 @@ pipeline {
         stage('Build and Test') {
             agent {
                 docker {
-                    image 'node:lts-bullseye-slim'
+                    image 'node:12-alpine'
                     args '-v ang-build:/var/jenkins_home/workspace/simple-angular-app/dist/simple-angular-app'
                 }
             }
@@ -13,7 +13,7 @@ pipeline {
                 stage('Build') {
                     steps {
                         sh 'npm install'
-                        sh 'sudo npm run build'
+                        sh 'npm run build'
                     }
                 }
                 stage('Test') {
