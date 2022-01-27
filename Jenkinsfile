@@ -15,7 +15,9 @@ pipeline {
                     steps {
                         sh 'pwd'
                         sh 'whoami'
-//                         sh 'ls -al dist/simple-angular-app'
+                        sh 'ls -al'
+                        sh 'ls -al dist'
+                        sh 'ls -al dist/simple-angular-app'
                         sh 'npm install'
                         sh 'npm run build'
                         sh 'ls -al dist/simple-angular-app'
