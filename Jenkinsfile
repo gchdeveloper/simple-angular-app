@@ -6,6 +6,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:16-alpine'
+                    args '-u root:root'
 //                     args '-v ang-build:/var/jenkins_home/workspace/simple-angular-app-fixed/dist/simple-angular-app'
                 }
             }

@@ -3,4 +3,5 @@ WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
-CMD ["whoami", ""]
+RUN whoami > whoami.txt
+CMD tail -f /dev/null
