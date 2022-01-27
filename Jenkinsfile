@@ -5,7 +5,7 @@ pipeline {
         stage('Build and Test') {
             agent {
                 docker {
-                    image 'node:14-alpine'
+                    image 'node:16-alpine'
                     args '-v ang-build:/var/jenkins_home/workspace/simple-angular-app/dist/simple-angular-app'
                 }
             }
