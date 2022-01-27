@@ -36,6 +36,7 @@ pipeline {
             stages {
                 stage('Deploy') {
                     steps {
+                        sh 'ls -al /usr/share/nginx/html'
                         sh 'echo Deployed?...'
                     }
                 }
