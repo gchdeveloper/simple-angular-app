@@ -6,17 +6,16 @@ pipeline {
             agent {
                 docker {
                     image 'node:16-alpine'
-                    args '-u root:root -v ang-build:/var/jenkins_home/workspace/simple-angular-app-fixed/my-dist'
+                    args '-u root:root -v ang-build:/var/jenkins_home/workspace/simple-angular-app-fixed/dist/simple-angular-app'
                 }
             }
             stages {
                 stage('Build') {
                     steps {
-                        sh 'rm -rf dist'
+                        sh 'rm -rf dist/simple-angular-app/*'
                         sh 'npm install'
                         sh 'npm run build'
                         sh 'ls -al dist/simple-angular-app'
-                        sh 'cp dist/simple-angular-app/* my-dist/'
                     }
                 }
                 stage('Test') {
