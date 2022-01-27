@@ -6,14 +6,14 @@ pipeline {
             agent {
                 docker {
                     image 'node:16-alpine'
-                    args '-v ang-build:/var/jenkins_home/workspace/simple-angular-app/dist/simple-angular-app'
+//                     args '-v ang-build:/var/jenkins_home/workspace/simple-angular-app-fixed/dist/simple-angular-app'
                 }
             }
             stages {
                 stage('Build') {
                     steps {
                         sh 'pwd'
-                        sh 'ls -al dist/simple-angular-app'
+//                         sh 'ls -al dist/simple-angular-app'
                         sh 'npm install'
                         sh 'npm run build'
                         sh 'ls -al dist/simple-angular-app'
@@ -30,7 +30,7 @@ pipeline {
             agent {
                 docker {
                     image 'nginx:1.17.1-alpine'
-                    args '-v ang-build:/usr/share/nginx/html -p 80:80'
+//                     args '-v ang-build:/usr/share/nginx/html -p 80:80'
                 }
             }
             stages {
