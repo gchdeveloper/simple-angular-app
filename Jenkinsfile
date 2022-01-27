@@ -18,6 +18,7 @@ pipeline {
                         sh 'ls -al'
                         sh 'ls -al dist'
                         sh 'ls -al dist/simple-angular-app'
+                        sh 'rm -rf dist'
                         sh 'npm install'
                         sh 'npm run build'
                         sh 'ls -al dist/simple-angular-app'
