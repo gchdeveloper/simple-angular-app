@@ -30,7 +30,7 @@ pipeline {
             agent {
                 docker {
                     image 'nginx'
-                    args '-p 8081:80'
+                    args '-it -p 8081:80'
 //                     args '-v ang-build:/usr/share/nginx/html:ro -p 8081:80'
                 }
             }
