@@ -2,50 +2,51 @@ pipeline {
     // new mutli-agent build
     agent none
     stages {
-//         stage('Build and Test') {
-//             agent {
-//                 docker {
-//                     image 'node:16-alpine'
-//                     args '-u root:root -v ang-build:/var/jenkins_home/workspace/simple-angular-app-fixed/my-dist'
-//                 }
-//             }
-//             stages {
-//                 stage('Build') {
-//                     steps {
-//                         sh 'rm -rf dist'
-//                         sh 'npm install'
-//                         sh 'npm run build'
-//                         sh 'ls -al dist/simple-angular-app'
-//                         sh 'cp dist/simple-angular-app/* my-dist/'
-//                     }
-//                 }
-//                 stage('Test') {
-//                     steps {
-//                         sh 'echo testing...'
-//                     }
-//                 }
-//             }
-//         }
-        stage('Deploy') {
+        stage('Build and Test') {
             agent {
                 docker {
-                    image 'nginx'
-                    args '-it -p 8081:80'
-//                     args '-v ang-build:/usr/share/nginx/html:ro -p 8081:80'
+                    image 'node:16-alpine'
+                    args '-u root:root -v ang-build:/var/jenkins_home/workspace/simple-angular-app-fixed/my-dist'
                 }
             }
             stages {
-                stage('Deploy') {
+                stage('Build') {
                     steps {
-                        sh 'ls -al /usr/share/nginx/html'
-                        sh 'echo Deployed?...'
-                        input message: "Click Proceed to terminate web server"
-                        sh 'echo Terminated?...'
+                        sh 'rm -rf dist'
+                        sh 'npm install'
+                        sh 'npm run build'
+                        sh 'ls -al dist/simple-angular-app'
+                        sh 'cp dist/simple-angular-app/* my-dist/'
+                    }
+                }
+                stage('Test') {
+                    steps {
+                        input message: "Click Proceed to test"
+                        sh 'echo testing...'
                     }
                 }
             }
         }
-    }
+//         stage('Deploy') {
+//             agent {
+//                 docker {
+//                     image 'nginx'
+//                     args '-it -p 8081:80'
+// //                     args '-v ang-build:/usr/share/nginx/html:ro -p 8081:80'
+//                 }
+//             }
+//             stages {
+//                 stage('Deploy') {
+//                     steps {
+//                         sh 'ls -al /usr/share/nginx/html'
+//                         sh 'echo Deployed?...'
+//                         input message: "Click Proceed to terminate web server"
+//                         sh 'echo Terminated?...'
+//                     }
+//                 }
+//             }
+//         }
+//     }
 
     // initial build
 //     agent {
