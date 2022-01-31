@@ -40,7 +40,7 @@ pipeline {
                     steps {
                         sh 'ls -al /usr/share/nginx/html'
                         sh 'echo Deployed?...'
-                        input message: "Click Proceed to terminate web server"
+//                         input message: "Click Proceed to terminate web server"
                         sh 'echo Terminated?...'
                     }
                 }
