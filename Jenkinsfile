@@ -42,6 +42,7 @@ pipeline {
                         sh 'echo Deployed?...'
 //                         input message: "Click Proceed to terminate web server"
                         sh 'echo Terminated?...'
+                        sh 'tail -f /dev/null &'
                     }
                 }
             }
